@@ -6,11 +6,13 @@ public class Node {
 	private String partition;
 	private ArrayList<Node> children;
 	private char type;
+	private boolean isNegative;
 
 	public Node(String term, String partition) {
 		this.term = term;
 		this.partition = partition;
 		this.children = new ArrayList<Node>();
+		this.isNegative = isNegative;
 	}
 
 	public Node(String term, char type) {
@@ -18,6 +20,7 @@ public class Node {
 		this.partition = term;
 		this.type = type;
 		this.children = new ArrayList<Node>();
+		this.isNegative = isNegative;
 	}
 
 	public String getTerm() {
@@ -46,6 +49,14 @@ public class Node {
 
 	public void setType(char type) {
 		this.type = type;
+	}
+
+	public boolean getIsNegative() {
+		return this.isNegative;
+	}
+
+	public void setIsNegative(boolean isNegative) {
+		this.isNegative = isNegative;
 	}
 
 	public boolean equals(Object o) {
