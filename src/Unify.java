@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Listify {
+public class Unify {
 
 	// Splits arguments of a function/predicate.
 	public static ArrayList<String> splitSp(String terms) {
@@ -37,17 +37,17 @@ public class Listify {
 		// in a tree form where each statement has children if it was a function or
 		// predicate.
 		public static Node decomposeStatement(String statement) {
-			String pattern = "([not]*)\\s*(\\w+)(\\([a-zA-Z0-9\\(\\)]+([,][a-zA-Z0-9\\(\\)]+)*\\))*";
+			String pattern = "([n][o][t])*\\s*(\\w+)(\\([a-zA-Z0-9\\(\\)]+([,][a-zA-Z0-9\\(\\)]+)*\\))*";
 
 			Pattern r = Pattern.compile(pattern);
 
 			Matcher m = r.matcher(statement);
 			if (m.find()) {
 				Node parent = new Node(statement, m.group(2));
-				if(m.group(1) == null) {
-					parent.setIsNegative(false);
-				} else {
+				if(m.group(1) !=  null) {
 					parent.setIsNegative(true);
+				} else {
+					parent.setIsNegative(false);
 				}
 				String term = m.group(3);
 				if (term != null) {
